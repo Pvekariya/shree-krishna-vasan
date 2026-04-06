@@ -1,0 +1,245 @@
+[
+  {
+    "name": "Stainless Steel Fry Pan",
+    "price": 1200,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1586201375761-83865001e31c"]
+  },
+  {
+    "name": "Non-stick Kadhai",
+    "price": 1800,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"]
+  },
+  {
+    "name": "Pressure Cooker",
+    "price": 2200,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1585238342024-78d387f4a707"]
+  },
+  {
+    "name": "Saucepan Set",
+    "price": 1500,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1590794056226-79ef3a8147e1"]
+  },
+  {
+    "name": "Tawa Flat Pan",
+    "price": 900,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1610701596007-11502861dcfa"]
+  },
+  {
+    "name": "Grill Pan",
+    "price": 1700,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1556910103-1c02745aae4d"]
+  },
+  {
+    "name": "Deep Fryer Pot",
+    "price": 2100,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1514516870926-2059891c56c8"]
+  },
+  {
+    "name": "Cookware Combo Set",
+    "price": 4500,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1564844536311-de546a28c87b"]
+  },
+  {
+    "name": "Milk Boiler",
+    "price": 800,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1590080874088-eec64895b423"]
+  },
+  {
+    "name": "Mini Sauce Pan",
+    "price": 600,
+    "category": "Cookware",
+    "images": ["https://images.unsplash.com/photo-1578985545062-69928b1d9587"]
+  },
+
+  {
+    "name": "Airtight Container Set",
+    "price": 1200,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"]
+  },
+  {
+    "name": "Glass Storage Jar",
+    "price": 700,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1589363460779-7c5dc8c4ef3f"]
+  },
+  {
+    "name": "Plastic Container Set",
+    "price": 900,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1616628182509-6c04c0b61dbe"]
+  },
+  {
+    "name": "Spice Box",
+    "price": 500,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c"]
+  },
+  {
+    "name": "Kitchen Organizer Rack",
+    "price": 2000,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1556911220-bff31c812dba"]
+  },
+  {
+    "name": "Fridge Storage Boxes",
+    "price": 1100,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1581578731548-c64695cc6952"]
+  },
+  {
+    "name": "Grain Storage Bin",
+    "price": 1300,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1578985545062-69928b1d9587"]
+  },
+  {
+    "name": "Lunch Storage Set",
+    "price": 950,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1564844536311-de546a28c87b"]
+  },
+  {
+    "name": "Modular Storage Kit",
+    "price": 2500,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1590080874088-eec64895b423"]
+  },
+  {
+    "name": "Oil Dispenser Bottle",
+    "price": 400,
+    "category": "Storage",
+    "images": ["https://images.unsplash.com/photo-1514516870926-2059891c56c8"]
+  },
+
+  {
+    "name": "Dinner Set 24 pcs",
+    "price": 3500,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1585238342024-78d387f4a707"]
+  },
+  {
+    "name": "Steel Plate Set",
+    "price": 1200,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1564844536311-de546a28c87b"]
+  },
+  {
+    "name": "Glass Dinner Set",
+    "price": 3000,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c"]
+  },
+  {
+    "name": "Bowl Set",
+    "price": 800,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1589363460779-7c5dc8c4ef3f"]
+  },
+  {
+    "name": "Serving Tray Set",
+    "price": 900,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1556910103-1c02745aae4d"]
+  },
+  {
+    "name": "Cutlery Set",
+    "price": 1500,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1590080874088-eec64895b423"]
+  },
+  {
+    "name": "Soup Bowl Set",
+    "price": 700,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1578985545062-69928b1d9587"]
+  },
+  {
+    "name": "Dessert Plate Set",
+    "price": 600,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1610701596007-11502861dcfa"]
+  },
+  {
+    "name": "Premium Dinner Combo",
+    "price": 5000,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1586201375761-83865001e31c"]
+  },
+  {
+    "name": "Kids Dinner Set",
+    "price": 850,
+    "category": "Dinner Set",
+    "images": ["https://images.unsplash.com/photo-1604908176997-125f25cc6f3d"]
+  },
+
+  {
+    "name": "Kitchen Knife Set",
+    "price": 1200,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1556911220-bff31c812dba"]
+  },
+  {
+    "name": "Chopping Board",
+    "price": 400,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1581578731548-c64695cc6952"]
+  },
+  {
+    "name": "Peeler Tool",
+    "price": 200,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1564844536311-de546a28c87b"]
+  },
+  {
+    "name": "Grater",
+    "price": 300,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1590080874088-eec64895b423"]
+  },
+  {
+    "name": "Whisk",
+    "price": 250,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1578985545062-69928b1d9587"]
+  },
+  {
+    "name": "Measuring Cups",
+    "price": 500,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1589363460779-7c5dc8c4ef3f"]
+  },
+  {
+    "name": "Spatula Set",
+    "price": 450,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1610701596007-11502861dcfa"]
+  },
+  {
+    "name": "Bottle Opener",
+    "price": 150,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c"]
+  },
+  {
+    "name": "Kitchen Scissors",
+    "price": 350,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1514516870926-2059891c56c8"]
+  },
+  {
+    "name": "Accessory Combo Kit",
+    "price": 1200,
+    "category": "Accessories",
+    "images": ["https://images.unsplash.com/photo-1586201375761-83865001e31c"]
+  }
+]
