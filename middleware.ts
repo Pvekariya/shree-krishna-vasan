@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Protect all admin dashboard routes (not login)
   if (
     pathname.startsWith("/admin") &&
     !pathname.startsWith("/admin/login")
