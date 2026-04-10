@@ -1,11 +1,11 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { getSiteUrl } from "@/lib/site-url";
 import { FileText, Download, Link, ChevronRight } from "lucide-react";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 async function getCatalogs() {
   try {
-    const res = await fetch(`${BASE}/api/catalogs`, { cache: "no-store" });
+    const siteUrl = await getSiteUrl();
+    const res = await fetch(`${siteUrl}/api/catalogs`, { cache: "no-store" });
     if (!res.ok) return [];
     return res.json();
   } catch {

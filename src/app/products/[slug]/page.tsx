@@ -1,16 +1,17 @@
 import ProductDetail from "@/components/products/ProductDetail";
 import RelatedProducts from "@/components/products/RelatedProducts";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+import { getSiteUrl } from "@/lib/site-url";
 
 async function getProduct(id: string) {
-  const res = await fetch(`${BASE}/api/products/${id}`, { cache: "no-store" });
+  const siteUrl = await getSiteUrl();
+  const res = await fetch(`${siteUrl}/api/products/${id}`, { cache: "no-store" });
   if (!res.ok) return null;
   return res.json();
 }
 
 async function getAllProducts() {
-  const res = await fetch(`${BASE}/api/products`, { cache: "no-store" });
+  const siteUrl = await getSiteUrl();
+  const res = await fetch(`${siteUrl}/api/products`, { cache: "no-store" });
   if (!res.ok) return [];
   return res.json();
 }
