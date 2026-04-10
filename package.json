@@ -11,10 +11,11 @@
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.9.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "jsonwebtoken": "^9.0.3",
-    "lucide-react": "^1.7.0",
+    "lucide-react": "^1.8.0",
     "mongoose": "^9.4.1",
     "next": "16.2.2",
     "next-sitemap": "^4.2.3",
