@@ -1,17 +1,21 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { getSiteUrl } from "@/lib/site-url";
+import { getDb } from "@/lib/mongodb";
 import { FileText, Download, Link, ChevronRight } from "lucide-react";
 
 async function getCatalogs() {
   try {
-    const siteUrl = await getSiteUrl();
-    const res = await fetch(`${siteUrl}/api/catalogs`, { cache: "no-store" });
-    if (!res.ok) return [];
-    return res.json();
+    const db = await getDb();
+    return await db
+      .collection("catalogs")
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
   } catch {
     return [];
   }
 }
+
+export const dynamic = "force-dynamic";
 
 const categories = [
   {

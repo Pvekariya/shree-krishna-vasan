@@ -1,14 +1,20 @@
 import HomePageClient from "@/components/home/HomePageClient";
-import { getSiteUrl } from "@/lib/site-url";
+import { getDb } from "@/lib/mongodb";
 
 async function getProducts() {
-  const siteUrl = await getSiteUrl();
-  const res = await fetch(`${siteUrl}/api/products`, { cache: "no-store" });
-
-  if (!res.ok) return [];
-
-  return res.json();
+  try {
+    const db = await getDb();
+    return await db
+      .collection("products")
+      .find({})
+      .sort({ createdAt: -1 })
+      .toArray();
+  } catch {
+    return [];
+  }
 }
+
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const products = await getProducts();
