@@ -116,7 +116,8 @@ export default function HomePageClient({ products }: any) {
 
   if (!mounted) return null;
 
-  const featured = products?.slice(0, 8) || [];
+  const featuredProducts = products?.filter((product: any) => product.isFeatured);
+  const featured = (featuredProducts?.length ? featuredProducts : products)?.slice(0, 8) || [];
 
   return (
     <main className="bg-white text-gray-900">

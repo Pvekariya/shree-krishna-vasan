@@ -2,27 +2,49 @@
 
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/store/authStore";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Plus, Trash2, Upload, X } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function AdminCatalogsPage() {
   const { token } = useAuthStore();
+  const router = useRouter();
   const [catalogs, setCatalogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({ title: "", pdfUrl: "", coverImage: "" });
 
   const fetchCatalogs = async () => {
-    const res = await fetch("/api/admin/catalogs", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    setCatalogs(await res.json());
-    setLoading(false);
+    if (!token) return;
+
+    try {
+      setLoading(true);
+      const res = await fetch("/api/admin/catalogs", {
+        headers: { Authorization: `Bearer ${token}` },
+        cache: "no-store",
+      });
+
+      if (!res.ok) {
+        const error = await res.json().catch(() => null);
+        throw new Error(error?.error || "Failed to load catalogs");
+      }
+
+      setCatalogs(await res.json());
+    } catch (error: any) {
+      toast.error(error.message || "Failed to load catalogs");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  useEffect(() => { fetchCatalogs(); }, []);
+  useEffect(() => {
+    if (token) {
+      fetchCatalogs();
+    }
+  }, [token]);
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: "pdfUrl" | "coverImage") => {
     const file = e.target.files?.[0];
@@ -32,13 +54,29 @@ export default function AdminCatalogsPage() {
       const fd = new FormData();
       fd.append("file", file);
       const res = await fetch("/api/upload", { method: "POST", body: fd });
+
+      if (!res.ok) {
+        const error = await res.json().catch(() => null);
+        throw new Error(error?.error || "Upload failed");
+      }
+
       const { url } = await res.json();
+
+      if (!url) {
+        throw new Error("Upload did not return a file URL");
+      }
+
       setForm((f) => ({ ...f, [field]: url }));
-      toast.success("Uploaded!");
-    } catch {
-      toast.error("Upload failed");
+      toast.success(
+        field === "pdfUrl"
+          ? "PDF uploaded. Save catalog to publish it."
+          : "Cover image uploaded. Save catalog to publish it."
+      );
+    } catch (error: any) {
+      toast.error(error.message || "Upload failed");
     } finally {
       setUploading(false);
+      e.target.value = "";
     }
   };
 
@@ -47,16 +85,36 @@ export default function AdminCatalogsPage() {
       toast.error("Title and PDF are required");
       return;
     }
-    const res = await fetch("/api/admin/catalogs", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify(form),
-    });
-    if (res.ok) {
-      toast.success("Catalog added!");
+
+    if (uploading) {
+      toast.error("Wait for the current upload to finish");
+      return;
+    }
+
+    setSaving(true);
+    try {
+      const res = await fetch("/api/admin/catalogs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const error = await res.json().catch(() => null);
+        throw new Error(error?.error || "Failed to save catalog");
+      }
+
+      const catalog = await res.json();
+
+      setCatalogs((current) => [catalog, ...current]);
       setForm({ title: "", pdfUrl: "", coverImage: "" });
       setShowForm(false);
-      fetchCatalogs();
+      toast.success("Catalog published and live on the website");
+      router.refresh();
+    } catch (error: any) {
+      toast.error(error.message || "Failed to save catalog");
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -141,9 +199,10 @@ export default function AdminCatalogsPage() {
               </div>
               <button
                 onClick={handleAdd}
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-400 text-white py-3 rounded-xl font-bold hover:opacity-90 transition"
+                disabled={uploading || saving}
+                className="w-full bg-gradient-to-r from-orange-500 to-amber-400 text-white py-3 rounded-xl font-bold hover:opacity-90 transition disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Save Catalog
+                {saving ? "Publishing..." : "Save Catalog"}
               </button>
             </div>
           </motion.div>
